@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\IndexController::class,'laslesVpn'])->name('home');
+Route::get('/quize', function () {
+    return view('Quize');
+})->name('quize');
+

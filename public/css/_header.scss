@@ -1,0 +1,152 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 4% 0 7%;
+
+    nav {
+		display: flex;
+        justify-content: space-between;
+		width: 74%;
+
+            ul {
+			width: 49%;
+            display: flex;
+            justify-content: space-between;
+			flex-wrap: wrap;
+                a:hover{
+                    color: $main_color;
+                }
+            }
+			.burger-ul{
+				display: none;
+			}
+
+    }
+    .header-buttons {
+		width: 51%;
+		text-align: end;
+        a{
+            padding:0 15px;
+            font-weight: bold;
+            color: $main_text;
+
+        }
+        &:first-of-type{
+            a:hover{
+                color: $main_color;
+            }
+            
+        }            
+        & a:last-of-type {
+            padding: 13px 45px;
+        }
+		@media (max-width:$tablet) {
+			width: 95%;
+			a{
+				font-size: 12.8px;
+			}
+		}
+		@media (max-width:$phone) {
+			width: 90%;
+			
+			a{
+				font-size: 10px;
+				border: 0;
+				padding: 3px!important;
+				color: $main_text!important;
+				&:hover{
+					color: $main_color!important;
+					background-color: transparent;
+					box-shadow: none;
+				}
+			}
+		}
+    }	
+	.burger {
+		border: 0;
+		cursor: pointer;
+		display: none;
+		position: relative;
+		padding: 0;
+		outline: none;
+		height: 30px;
+		width: 30px;
+	}
+	
+	
+	
+.burger-btn {
+	overflow: visible;
+	cursor: pointer;
+	fill: $main_color;
+	
+	&--1,
+	&--2,
+	&--3 {
+		transition: .2s;
+		transform-origin: center center;
+	}
+	
+	&.active {
+		.burger-btn--1 {
+			transform: translate(-7px, 7px) rotate(45deg);
+		}
+		.burger-btn--2 {
+			transform: translateX(20px);
+			opacity: 0;
+		}
+		.burger-btn--3 {
+			transform: translate(-7px, -7px) rotate(-45deg);
+		}
+	}
+}
+
+	
+	@media screen and (max-width: $tablet) {
+		header h1 {
+			font-size: 2em;
+		}
+		
+		.burger {
+			display: block;
+		}
+		
+		.burger.show-x .bar:first-of-type {
+			transform: translate(-50%, 50%) rotate(225deg);
+		}
+		nav ul{
+			display: none;
+		}
+		.burger.show-x .bar:nth-child(2) {
+			display: none;
+		}
+		
+		.burger.show-x .bar:last-of-type {
+			transform: translate(-50%, 50%) rotate(225deg);
+		}
+		
+		.burger-ul {
+			display: flex!important;
+			background-color: #fff;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+			flex-direction: column;
+			text-align: center;
+			position: fixed;
+			top: 90px;
+			transform: translateX(120%);
+			width: 80%!important;
+			transition: transform 0.3s ease-in;
+			z-index: 100;
+		}
+		
+		ul.show {
+			transform: translateX(0);
+		}
+		
+		ul li {
+			margin: 15px;
+		}
+	}
+}
