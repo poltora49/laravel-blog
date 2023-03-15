@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
-    @push('style')
+    @section('title','Laravel Blade')
+
+    @push('head')
         <link rel="stylesheet" href="/slick/slick.css"/>
         <link rel="stylesheet" href="/css/index.css">
     @endpush

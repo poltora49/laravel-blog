@@ -7,15 +7,15 @@
             <li><a href="#" class="nav-link">About</a></li>
             <li><a href="#" class="nav-link">Features</a></li>
             <li><a href="#" class="nav-link">Pricing</a></li>
-            <li><a href="{{route('quize')}}" class="nav-link">Testimonials</a></li>
-            <li><a href="#" class="nav-link">Help</a></li>
+            <li><a href="{{route('quize')}}" class="nav-link">Quize</a></li>
+            <li><a href="{{route("blog")}}" class="nav-link">Blog</a></li>
         </ul>
         <ul class="burger-ul">
             <li><a href="#" class="nav-link">About</a></li>
             <li><a href="#" class="nav-link">Features</a></li>
             <li><a href="#" class="nav-link">Pricing</a></li>
-            <li><a href="{{route('quize')}}" class="nav-link">Testimonials</a></li>
-            <li><a href="#" class="nav-link">Help</a></li>
+            <li><a href="{{route('quize')}}" class="nav-link">Quize</a></li>
+            <li><a href="{{route("blog")}}" class="nav-link">Blog</a></li>
         </ul>
             <div class="header-buttons">
                 <a href="#">Sign In</a>
