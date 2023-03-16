@@ -9,7 +9,7 @@
 
         @auth("web")
             {{-- <a href="{{ route("my_posts") }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">My post</a> --}}
-            {{-- <a href="{{ route("create") }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Create</a> --}}
+            <a href="{{ route("posts.create") }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Create</a>
             <a href="{{ route("logout") }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Logout</a>
         @endauth
 

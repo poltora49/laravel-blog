@@ -19,6 +19,8 @@ class PostFactory extends Factory
         return [
             "title"=> $this->faker->name(),
             "description"=> $this->faker->text(),
+            "user_id"=> 1,
+            "thumbnail"=> $this->faker->image('public/storage', 640, 540, null, false)
         ];
     }
 }

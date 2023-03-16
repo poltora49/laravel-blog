@@ -14,7 +14,13 @@ class Comment extends Model
         "text",
         "user_id",
         "post_id",
+        'posted_at'
     ];
+
+    protected $dates = [
+        'posted_at'
+    ];
+
     public function post(){
         return $this->belongsTo(Post::class);
     }

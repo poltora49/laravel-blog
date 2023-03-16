@@ -12,10 +12,17 @@ class Post extends Model
     protected $fillable = [
         "title",
         "description",
-        "thumbnail"
+        'user_id',
+        "thumbnail",
     ];
 
-    public function comments(){
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
         return $this->hasMany(Comment::class)->orderBy("created_at");
     }
 }

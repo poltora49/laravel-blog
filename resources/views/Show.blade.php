@@ -1,19 +1,20 @@
 @extends('layouts.layout')
 
-@push('head')
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@endpush
+    @push('head')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endpush
 
-@section('title', $post->title)
+    @section('title', $post->title)
 
-@section('content')
-    @include('templates.Blog.header')
+    @section('header')
+        @include('templates.Blog.header')
+    @endsection
 
-    <div>
+    @section('content')
         <div class="m-auto px-4 py-8 max-w-xl">
             <div class="bg-white shadow-2xl" >
                 <div>
-                    <img src="{{ $post->thumbnail }}">
+                    <img src="/storage/{{ $post->thumbnail }}">
                 </div>
                 <div class="px-4 py-2 mt-2 bg-white">
                     <h2 class="font-bold text-2xl text-gray-800">{{ $post->title }}</h2>
@@ -32,7 +33,7 @@
                             @csrf
 
                             <textarea name="text" class="w-full shadow-inner p-4 border-0 mb-4 rounded-lg focus:shadow-outline
-                            text-2xl @error('text') border-red-500 @enderror" placeholder="Ваш комментарий..."
+                            text-2xl @error('text') border-red-500 @enderror" placeholder="Your comment..."
                             spellcheck="false"></textarea>
 
                             @error('text')
@@ -47,7 +48,8 @@
                     <div id="task-comments" class="pt-4">
                         @foreach($post->comments as $comment)
 
-                            <div class="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
+                            <div class="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start
+                            shadow-lg mb-4">
                                 <div class="flex flex-row justify-center mr-2">
                                     <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left
                                     ">{{ $comment->user->name }}</h3>
@@ -59,14 +61,19 @@
 
                         @endforeach
                     </div>
-                    <form action="{{ route("post_delete", $post->id) }}" method="POST">
+                    @if ($post->user == auth()->user())
+                    <a href="{{ route("posts.edit", $post->id) }}" class="font-semibold my-4 py-2 px-4 bg-purple-800 text-lg
+                        text-white shadow-md rounded-lg">Редактировать</a>
+                    <form action="{{ route("posts.delete", $post->id) }}" method="POST">
                         @csrf
 
-                        <button type="submit" class="text-red-800 hover:text-red-900">Delete</button>
+                        <button type="submit" class="text-white font-semibold my-4 py-2 px-4 bg-red-600 text-lg rounded-lg
+                        ">Delete</button>
                     </form>
+                    @endif
+
                 </section>
 
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
